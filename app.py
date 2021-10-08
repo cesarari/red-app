@@ -1,5 +1,4 @@
 import streamlit as st
-from PIL import Image
 import numpy as np
 import pandas as pd
 import keras
@@ -52,8 +51,6 @@ with col3:
     st.write("Clase de la celula = ", y_pred) 
 
     if y_pred == 0:
-        im = Image.open("imagenes/0.jpeg")
-        st.image(im)
+        st.image("imagenes/0.jpeg")
     if y_pred == 1:
-        im = Image.open("imagenes/1.jpeg")
-        st.image(im)
+        st.image("imagenes/1.jpeg")
