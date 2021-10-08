@@ -1,5 +1,4 @@
 streamlit 
 numpy
 pandas
-tensorflow
-keras
+sklearn==0.24.1

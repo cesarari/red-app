@@ -1,8 +1,8 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import keras
-
+import sklearn
+import joblib
 
 st.write("#### Esta es una aplicacion que clasifica celulas")
 
@@ -20,9 +20,7 @@ from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler().fit(x)
 
 
-imagen_celula = Image.open('imagenes/cell.jpg')
-st.image(imagen_celula)
-
+st.image('imagenes/cell.jpg')
 
 
 
@@ -37,11 +35,11 @@ with col1:
  
 
 with col3:
-    Red_neuronal = keras.models.load_model('cell_model.h5')
+    modelo_cargado = joblib.load('modelo_arbol.joblib')
     x = x_usuario.reshape(1,-1)
     x2 = scaler.transform(x)
 
-    y_pred = Red_neuronal.predict(x2)
+    y_pred = modelo_cargado.predict(x2)
 
     if y_pred < 0.5:
         y_pred = 0
